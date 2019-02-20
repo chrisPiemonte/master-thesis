@@ -1,0 +1,153 @@
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[font = scriptsize, bf]{caption}
+% \usepackage[english]{babel}
+\usepackage[italian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath, amssymb}
+\usepackage{moreverb}
+\usepackage{algorithm} %
+\usepackage{algpseudocode}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[swapnames]{frontespizio}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{eqparbox,array}
+\usepackage{siunitx}
+\usepackage{subfigure} 
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage{eurosym}
+
+\renewcommand{\algorithmiccomment}[1]{  //\emph{\textcolor{Gray}{#1}}}
+
+
+% Sistema i margini per lasciare più spazio di rilegatura
+\addtolength{\oddsidemargin}{+1,3cm} 
+\addtolength{\evensidemargin}{-1,3cm} 
+\onehalfspacing
+
+% Imposta lo stile della prima pagina del capitolo
+\fancypagestyle{plain} {
+    \fancyhead{}
+    \fancyfoot[L,RO]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\compInterfacciaDB}{Data Interface}
+\newcommand{\compLoader}{Loader}
+\newcommand{\compMatrix}{Matrix Creator}
+\newcommand{\compTermsSel}{Terms Selector}
+\newcommand{\compPosition}{Position Calculator}
+\newcommand{\compClustering}{Clustering Component}
+\newcommand{\compEvolution}{Evolution Discoverer}
+
+% \newtheorem{thm}[equation]{Theorem}
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{exmp}{Example}[chapter]
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{prp}{Property}[chapter]
+
+
+
+\hyphenation{ti-me-win-dow}
+
+\graphicspath{{./Immagini/}}
+
+
+\begin{document}
+
+% frontespizio
+\begin{frontespizio}
+  \Istituzione{University of Bari ``Aldo Moro''}
+  \Logo[3.5cm]{images/logo_uni.jpeg}
+  \Divisione{Department of Computer Science}
+  \Scuola{Master's Degree in Computer Science}
+  \Titolo{Deep Learning for Image Recognition}
+  \Sottotitolo{Tesi di Laurea in Data Mining}
+  \NCandidato{Laureando}
+  \Candidato[659723]{Christopher Piemonte}
+  %\NRelatore{Relatore}{Professors}
+  \Relatore{Chiar.mo Prof. Michelangelo Ceci}
+  \Correlatore{Dott. Fabio Fumarola}
+  \Piede{Academic year 2017-2018}
+\end{frontespizio}
+
+% \IfFileExists{Tesi-frn.pdf}{}{%
+% 	\immediate\write18{pdflatex Tesi-frn}
+% }
+
+\IfFileExists{\jobname-frn.pdf}{}{%
+\immediate\write18{pdflatex \jobname-frn}}
+
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[L,RO]{\thepage}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\headheight = 15pt
+\frontmatter
+
+
+% Ringraziamenti
+\input{chapters/Acknowledgements}
+
+% indice
+\tableofcontents
+\afterpage{\null\newpage}
+\listoftables
+\listoffigures
+% \cleardoublepage
+% \newpage
+% 	\color{white}
+% 	a
+% 	\color{black}
+	
+% \frontmatter{\thispagestyle{empty}}	
+\mainmatter{\thispagestyle{empty}}
+\afterpage{\thispagestyle{empty}}
+
+% Imposta lo stile di intestazione e piè di pagina dei capitoli
+\fancyfoot{}
+\fancyhead{}
+\fancyhead[L,RO]{\slshape \leftmark}
+\fancyfoot[L,RO]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+
+
+% Introduzione
+\input{chapters/Introduction}
+% \afterpage{\thispagestyle{empty}}
+% \addcontentsline{toc}{chapter}{Introduction} 
+
+\chapter{Argumentation Theory}
+\label{cap:capitolo1}
+\input{chapters/Chapter1}
+
+\chapter{Mining dai Social Media}
+\label{cap:capitolo2}
+\input{chapters/Chapter2}
+
+\chapter{Sperimentazione}
+\label{cap:capitolo3}
+\input{chapters/Chapter3}
+
+\chapter{Critical analysis}
+\label{cap:capitolo4}
+\input{chapters/Conclusion}
+
+
+% \chapter{Critical analysis}
+% \input{Capitoli/Conclusioni}
+
+
+\bibliographystyle{plain}
+\bibliography{Bibliography}
+
+\end{document}
