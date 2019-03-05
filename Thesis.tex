@@ -73,7 +73,7 @@
   %\NRelatore{Relatore}{Professors}
   \Relatore{Chiar.mo Prof. Michelangelo Ceci}
   \Correlatore{Dott. Fabio Fumarola}
-  \Piede{Academic year 2017-2018}
+  \Piede{Academic year 2018-2019}
 \end{frontespizio}
 
 % \IfFileExists{Tesi-frn.pdf}{}{%
@@ -119,27 +119,33 @@
 \renewcommand{\chaptermark}[1]{%
 \markboth{\thechapter.\ #1}{}}
 
-
+% Abstract
+\input{chapters/Abstract}
 
 % Introduzione
 \input{chapters/Introduction}
 % \afterpage{\thispagestyle{empty}}
 % \addcontentsline{toc}{chapter}{Introduction} 
 
-\chapter{Argumentation Theory}
-\label{cap:capitolo1}
+\chapter{Neural Networks}
+\label{cap:chapter1}
 \input{chapters/Chapter1}
 
-\chapter{Mining dai Social Media}
-\label{cap:capitolo2}
+\chapter{State of the Art}
+\label{cap:chapter2}
 \input{chapters/Chapter2}
 
-\chapter{Sperimentazione}
-\label{cap:capitolo3}
+\chapter{Pipeline}
+\label{cap:chapter3}
 \input{chapters/Chapter3}
 
-\chapter{Critical analysis}
-\label{cap:capitolo4}
+\chapter{Evaluation}
+\label{cap:chapter4}
+\input{chapters/Chapter4}
+
+% \chapter{Critical analysis}
+\chapter{Conclusion}
+\label{cap:conclusion}
 \input{chapters/Conclusion}
 
 
