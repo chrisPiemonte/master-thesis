@@ -7,15 +7,85 @@
 % Introduzione
 %*******************************************************
 
+% - state the general topic and give some background
+% - provide a review of the literature related to the topic
+% - define the terms and scope of the topic
+% - identify the goal of the proposed research
+% - state the research problems / questions
+% - outline the methodology
+% - conclusions
+
+
 \chapter*{Introduzione}
 
-Il Deep Learning è un campo del Machine Learning nato nella metà del secolo scorso, ma che solo negli ultimi anni è diventato tra i più famosi ambiti di ricerca, portando ad una rivoluzione in gran parte dell'Intelligenza Artificiale, raggiungendo risultati paragonabili a quelli umani in alcuni casi.
+% - state the general topic and give some background
+In tempi recenti, le compagnie di assicurazione auto si occupano di richieste di risarcimento sempre più frequenti. La gestione di un sinistro, che va dalla data di accadimento fino alla sua liquidazione, può rilevarsi un processo dispendioso in termini di tempo e risorse umane. La convalida manuale su vasta scala delle richieste non può soddisfare i requisiti di velocità che si traduce in una conseguente perdita \cite{eyclaimsleakage} a causa di inefficienze negli attuali processi manuali.
+La digitalizzazione di questo flusso porterebbe alla diminuzione dei costi di gestione ed al manifestarsi di nuove possibilità in ambiti come antifrode, auditing dei periti e customer experience.
 
-I risultati notevoli degli ultimi anni hanno alzato di molto le aspettative su ciò che questo settore sarà in grado di raggiungere nel prossimo decennio. Nonostante applicazioni rivoluzionarie, come ad esempio le auto con guida autonoma, siano già a portata di mano, molte altre rimarranno probabilmente irraggiungibili per molto tempo, come ad esempio sistemi di dialogo credibili, traduzione automatica a livello umano attraverso due qualsiasi lingue e comprensione della lingua naturale (Natural Language Understanding) a livello umano. Il rischio con grandi aspettative a breve termine è che, con il fallimento della tecnologia, gli investimenti nella ricerca si prosciugheranno, rallentando i progressi a lungo, come già capitato in passato.
+%% frase brutta
+L'elaborazione delle immagini di sinistri prevede però l'attuazione di tecniche di Intelligenza artificiale applicato ad un formato dati non strutturato.
 
-Tuttavia, i risultati ottenuti sono innegabili. Nel campo della Computer Vision, ad esempio, le Convolutional Neural Networks hanno completamente rimpiazzato i metodi classici. Introdotte inizialmente da Yann LeCun nel '98 \cite{lecun1998gradient}, e poi portate alla ribalta da Alex Krizhevsky e Geoffrey Hinton con la rete "AlexNet" \cite{krizhevsky2012imagenet} con cui vinsero la ImageNet competition portando la top-five accuracy degli anni precedenti da 74.3\% ad 83.6\%. Da allora, la competizione è stata dominata dalle Convolutional Neural Network. Nel 2015, il vincitore ha raggiunto un'accuratezza del 96,4\% e il compito di classificazione su ImageNet è considerato un problema risolto \cite{francois2017deep}.
+La computer vision è un area di ricerca molto attiva e con l'aumentare di dati e risorse di calcolo il Deep Learning, ed in particolare le Convolutional Neural Networks introdotte inizialmente da Yann LeCun nel '98 \cite{lecun1998gradient}, hanno completamente rimpiazzato i metodi classici e sono emerse come stato dell'arte \cite{krizhevsky2012imagenet} grazie alla loro abilità di automatizzare quello che era un passaggio cruciale: il feature engineering.
 
-La crescita del Deep Learning è stata dovuta alla loro abilità di automatizzare quello che era un passaggio cruciale: il feature engineering. Le precedenti tecniche di Machine Learning gestivano i dati input solitamente tramite proiezioni non lineari o altre trasformazioni semplici. Ma la rappresentazione di problemi complessi può non essere raggiunta da tali tecniche. Pertanto, era necessario rendere i dati di input più rappresentativi attraverso regole manuali. Il Deep Learning, d'altra parte, automatizza completamente questo passaggio, apprendendo le combinazioni dei dati in input più rappresentative congiuntamente all'apprendimento del task senza doverle progettare personalmente. Ciò ha notevolmente semplificato i flussi di lavoro di Machine Learning, sostituendo sofisticate pipeline con modelli di Deep Learning, addestrabili e end-to-end.
+% - provide a review of the literature related to the topic
+La stima economica del danno del sinistro si basa principalmente sul tipo di danno presente e sulla componente dell'auto sulla quale appare. Approcci in ambito industriale sono già emersi, come ad esempio \cite{tractable}, che offre di classificare e rilevare i danni partendo da fonti visive.
 
-Dal 2012, le Convolutional Neural Networks (convnets) sono diventate lo standard per tutte le attività di Computer Vision. Allo stesso tempo, il Deep Learning ha trovato applicazioni in molti altri tipi di problemi, come nel Natural Language processing, sostituendo completamente Support Vector Machines (SVM) e Decision Trees in una vasta gamma di applicazioni.
+Sono stati proposti diversi approcci per il rilevamento dei danni alla carrozzeria da immagini. In Srimal et al. \cite{jayawardena2013image} sono stati proposti modelli CAD 3D per gestire il rilevamento automatico dei danni ai veicoli tramite fotografia. Per identificare i danni in un'auto, usano una libreria di modelli CAD 3D non danneggiati di veicoli, i bordi dell'immagine che non sono presenti nella proiezione del modello CAD 3D possono essere considerati danni al veicolo. 
 
+Un sistema antifrode di sinistri auto basato su prove immagini: hanno proposto un approccio per individuare le regioni danneggiate utilizzando YOLO come algoritmo di Object Detection. In Cha et al. \cite{cha2017deep} un sistema di deep learning basato su immagini per rilevare i danni da fessure nel calcestruzzo; la metodologia utilizzata è l'acquisizione di immagini con l'ausilio della fotocamera e quindi la fase di preelaborazione in cui le immagini acquisite subiscono ridimensionamento e segmentazione, e infine per ottenere la forma della fessura, viene eseguita l'estrazione delle feature, mentre \cite{cha2017output} ha adottato un flusso ottico basato su fasi e filtri Kalman inodore. A. Mohan e S. Poobal studiano e riesaminano il rilevamento delle crepe utilizzando l'elaborazione delle immagini. Sulla base dell'analisi, concludono che un numero maggiore di ricercatori ha utilizzato l'immagine del tipo di telecamera per l'analisi con un algoritmo di segmentazione migliore \cite{mohan2018crack}.
+
+
+% - define the terms and scope of the topic
+Il perimetro di analisi si focalizza sui sinistri auto con importo da liquidare inferiore ai 1.500€, questo perchè sono i sinistri più frequenti, e che hanno meno probabilità di avere danni interni, non riconoscibili dalle fotografie dei sinistri.
+
+% - identify the goal of the proposed research
+Lo scopo di questa tesi è quello di sviluppare un modello di Machine Learning per la rilevazione delle componenti danneggiate.
+La stima automatica si inserisce nel contesto più ampio della perizia automatica, il quale si propone di automatizzare l'intero processo di gestione del sinistro. 
+
+% - state the research problems / questions
+Per questa dichiarazione del problema, abbiamo creato il nostro set di dati utilizzando i dataset presenti in letteratura e raccogliendo dataset da Internet e integrandoli con annotazioni manuali e semi-supervisionate. Ci siamo concentrati su sette comunemente tipi di danni all'auto osservati come rotture, graffi, ammaccature del paraurti, ammaccature della porta, testa lampada rotta, vetro in frantumi e fanale posteriore rotto. Abbiamo iniziato con il modello CNN di base, una classificazione delle immagini per l'ottimizzazione modelli pre-addestrati sul set di dati ImageNet. Abbiamo osservato che l'apprendimento trasferito funziona al meglio. 
+
+% frase brutta
+Da scouting di mercato non esistono soluzioni attive in produzione o use case di letteratura disponibili e anche i principali fornitori prevedono tempi di messa a terra di soluzioni simili non inferiori ai 2 anni.
+
+% avere più calssificatori rende più controllabile il flusso error analys
+% - outline the methodology
+La soluzione proposta, prevede l'orchestrazione di diversi modelli di deep learning, decisione obbligata e derivata dalla necessità di fornire una motivazione delle predizioni ottenute nelle diverse fasi del processo di stima più interpretabile possibile, requisito fondamentale nel rapporto con i clienti.
+
+Questa scelta porta ad una quantità di dati inferiore rispetto
+agli altri due approcci. L'interpretabilità tuttavia rende necessario un lavoro di integrazione dei vari modelli a livello di infrastruttura e combinazione delle predizioni intermedie nel risultato finale.
+
+
+% conclusions
+Nella sezione uno vedremo in dettaglio il workflow, come è stato ideato e l'orchestrazione dei diversi modelli. 
+
+Nella sezione due ci sarà un approfondimento delle motivazione che hanno spinto un lavoro del genere ad essere considerato di grande importanza in contesto assicurativo, con una piccola parentesi sulle problematiche affrontate in fase di progettazione.
+
+Infine nella sezione tre verrà presentato un estratto dei risultati ottenuti sui dati storici completati da delle metriche dell'applicazione dei singoli modelli su dataset più generali presenti in letteratura. 
+
+% aggiungere qui la parte di motivazione
+
+
+% 0. intro
+% 1. Business 
+%    1.1. motivazione
+%    1.2. problemi della progettazione
+% 2. Approccio analitico
+%    2.1. Componenti 
+%         2.1.1. Classification per ...
+%           - Descrizione task generale
+%           - rilevazione danno e livello
+%         2.1.2. Object detection per ...
+%           - Descrizione task generale
+%           - filtro auto e localizzazione
+%         2.1.3. segmentation per ...
+%           - Descrizione task generale
+%           - rilevazioni componenti
+%    2.2. Recap (algoritmica)
+%         2.2.1. composizione risultati, con il workflow (grafico)
+% 3. Risultati
+%     3.1. Metriche 
+%         3.1.1. Dati storici
+%         3.1.2. Dataset open
+%     3.2. Business metrics
+% 4. Conclusione
